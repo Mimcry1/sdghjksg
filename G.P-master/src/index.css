@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar {
+    @apply fixed left-0 top-0 w-64 bg-gray-800 text-white flex flex-col h-screen
+           transition-all duration-300 ease-in-out z-10;
+  }
+
+  .sidebar.collapsed {
+    @apply w-16;
+  }
+
+  .sidebar-toggle {
+    @apply absolute -right-4 top-4 bg-gray-800 text-white p-2 rounded-full
+           hover:bg-gray-700 transition-all duration-300 z-20 shadow-md;
+  }
+
+  .collapsed-content {
+    @apply flex flex-col items-center pt-4 px-2; /* Adjusted padding-top */
+  }
+
+  .collapsed-new-chat {
+    @apply p-3 rounded-lg bg-[#6dde4e] hover:bg-[#52be34] transition-colors /* Changed background color */
+           text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5
+           duration-200;
+  }
+
+  .sidebar-content {
+    @apply p-4 flex flex-col;
+  }
+
+  /* Logo Styles */
+  .sidebar-logo-expanded {
+    @apply h-16 w-auto; /* Adjust height as needed */
+  }
+
+  .sidebar-logo-collapsed {
+    @apply h-10 w-10; /* Adjust size for collapsed state */
+  }
+
+  .btn-new-chat {
+    @apply flex items-center space-x-3 w-full py-3 px-4
+           bg-[#6dde4e] hover:bg-[#52be34] rounded-lg mb-4 /* Changed background color */
+           transition-all duration-200 shadow-md hover:shadow-lg
+           transform hover:-translate-y-0.5;
+  }
+
+  .chat-list {
+    @apply space-y-1 overflow-y-auto flex-1 mt-2;
+  }
+
+  .chat-item {
+    @apply flex items-center justify-between p-2 rounded-lg
+           hover:bg-gray-700 cursor-pointer transition-colors;
+  }
+
+  .chat-item.active {
+    @apply bg-gray-700;
+  }
+
+  .chat-name {
+    @apply flex-1 truncate mr-2;
+  }
+
+  .chat-actions {
+    @apply flex items-center space-x-1 opacity-0 transition-opacity
+           group-hover:opacity-100;
+  }
+
+  .chat-item:hover .chat-actions {
+    @apply opacity-100;
+  }
+
+  .action-btn {
+    @apply p-1.5 rounded-full hover:bg-gray-600 transition-colors;
+  }
+
+  .action-btn.delete {
+    @apply hover:bg-red-500;
+  }
+
+  /* Message Styles - Dark Theme */
+  .message {
+    @apply max-w-3xl mx-auto p-4 rounded-lg break-words mb-2; /* Added margin-bottom */
+  }
+
+  .user-message {
+    @apply bg-[#6dde4e] text-white ml-auto; /* Changed user message background */
+  }
+
+  .ai-message {
+    @apply bg-gray-700 text-gray-200 mr-auto; /* Adjusted AI message background and text */
+  }
+
+  /* Ensure links within AI messages are visible */
+  .ai-message a {
+    @apply text-blue-400 hover:underline;
+  }
+
+  /* Ensure code blocks are readable */
+  .ai-message pre, .ai-message code {
+    @apply bg-gray-800 text-gray-300 p-2 rounded text-sm;
+  }
+
+  /* Modal Styles - Keep light for now */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+  }
+
+  .modal-content {
+    @apply bg-white rounded-lg p-6 max-w-md w-full mx-4 text-gray-800; /* Ensure modal text is dark */
+  }
+
+  .modal-title {
+    @apply text-xl font-bold mb-4;
+  }
+
+  .chat-name-input {
+    @apply flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800; /* Ensure input text is dark */
+  }
+
+    .chat-name-input::placeholder {
+    @apply transition-opacity duration-200 ease-in-out;
+  }
+
+  .chat-name-input:focus::placeholder {
+    @apply opacity-0;
+  }
+
+  .sidebar-content {
+    @apply p-4 flex flex-col;
+  }
+}
